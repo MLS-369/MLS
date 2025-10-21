@@ -1,12 +1,15 @@
 .legacy-container {
+  position: relative; /* Add this */
   background-color: #000;
   color: #c49b66;
-  height: 100vh;
+  min-height: 100vh; /* Change height to min-height */
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Poppins", sans-serif;
+  overflow: hidden; /* Optional: prevent scroll bar from wordcount overflow */
 }
+
 
 .timeline {
   position: relative;
@@ -97,4 +100,46 @@
   letter-spacing: 2px;
   font-weight: 600;
   margin: 0;
+}
+
+/* ======= Word Count Section (Bottom) ======= */
+.wordcount-section {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #d4af37; /* gold background */
+  color: #000; /* black text */
+  padding: 20px 0;
+  gap: 100px;
+}
+
+.wordcount-item {
+  text-align: center;
+}
+
+.countup-number {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.wordcount-item p {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  color: #000;
+}
+
+/* Optional subtle animation */
+.wordcount-item {
+  transition: transform 0.3s ease;
+}
+
+.wordcount-item:hover {
+  transform: scale(1.05);
 }
