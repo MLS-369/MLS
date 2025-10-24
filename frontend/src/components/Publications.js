@@ -1,10 +1,14 @@
 import React from "react";
 import "../styles/Publications.css";
 import {  useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
+
 const Publications = () => {
   const navigate = useNavigate();
+  const { isDarkTheme } = useTheme();
+  
   return (
-    <div className="publications-container dark">
+    <div className={`publications-container ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div className="publications-header">
         <h1>Our Publications</h1>
         <p>Browse research papers and publications authored by our experts.</p>

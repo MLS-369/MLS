@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Ourpeople.css";
+import { useTheme } from "./ThemeContext";
 
 const OurPeople = () => {
+  const { isDarkTheme } = useTheme();
+  
   return (
-    <section className="our-people" id="people">
+    <section className={`our-people ${isDarkTheme ? 'dark-theme' : 'light-theme'}`} id="people">
       <h2 className="our-people-heading">Our Partners</h2>
       <div className="our-people-images">
         <img

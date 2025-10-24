@@ -3,10 +3,13 @@ import {Link} from 'react-router-dom'
 import { Facebook, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import final_map from "../final_map.png"
 import "../styles/Footer.css";
-// import '../../public/Map.png';
+import { useTheme } from "./ThemeContext";
+
 const Footer = () => {
+  const { isDarkTheme } = useTheme();
+  
   return (
-    <footer className={`footer`}>
+    <footer className={`footer ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-section">

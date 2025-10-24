@@ -1,156 +1,3 @@
-// const express = require("express");
-// const mongoose = require("mongoose");
-// const cors = require("cors");
-// const multer = require("multer");
-// const path = require("path");
-
-// const Form = require("./models/Form"); // old form
-// const Application = require("./models/Application"); // careers form
-
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
-// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-// // ----------------------
-// // MONGODB CONNECTIONS
-// // ----------------------
-// const mongoURLForm = "mongodb+srv://praneethkollipara7:Issues@clientissues.fr33uzy.mongodb.net/";
-// const mongoURLCareer = "mongodb+srv://praneethkollipara7:Internships@internsapplied.uuokqhr.mongodb.net/";
-
-// // Old Form DB
-// const formConnection = mongoose.createConnection(mongoURLForm, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-// const FormModel = formConnection.model("Form", Form.schema);
-
-// // Careers Form DB
-// const careerConnection = mongoose.createConnection(mongoURLCareer, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-// const ApplicationModel = careerConnection.model("Application", Application.schema);
-
-// // ----------------------
-// // MULTER CONFIG
-// // ----------------------
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => cb(null, "internships/"),
-//   filename: (req, file, cb) => {
-//     cb(null,path.extname(file.originalname));
-//   },
-// });
-// const upload = multer({ storage });
-
-// // ----------------------
-// // ROUTE 1: Old Form
-// // ----------------------
-// app.post("/form", async (req, res) => {
-//   try {
-//     const { name, phone, email, query, dispute, freetime } = req.body;
-//     const time = new Date();
-
-//     const newForm = new FormModel({ name, phone, email, query, dispute, freetime, time });
-//     const savedForm = await newForm.save();
-
-//     console.log("New form:", savedForm);
-//     res.status(201).json({ message: "Form submitted successfully", data: savedForm });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: "Server error", error: err.message });
-//   }
-// });
-
-// // ----------------------
-// // ROUTE 2: Careers Form
-// // ----------------------
-// const cpUpload = upload.fields([
-//   { name: "cv", maxCount: 1 },
-//   { name: "researchSample", maxCount: 1 },
-//   { name: "marksSheet", maxCount: 1 },
-//   { name: "draftSample", maxCount: 1 },
-// ]);
-
-// app.post("/career", cpUpload, async (req, res) => {
-//   try {
-//     const body = req.body;
-//     const files = req.files;
-
-//     const newApplication = new ApplicationModel({
-//       fullName: body.fullName,
-//       email: body.email,
-//       phoneNumber: body.phoneNumber,
-//       residentialAddress: body.residentialAddress,
-//       college: body.college,
-//       course: body.course,
-//       yearOfStudy: body.yearOfStudy,
-//       coverLetter: body.coverLetter,
-//       disputeType: body.disputeType,
-//       preferredMode: body.preferredMode,
-//       cgpa: body.cgpa,
-//       cvUrl: files.cv ? files.cv[0].path : null,
-//       researchSampleUrl: files.researchSample ? files.researchSample[0].path : null,
-//       marksSheetUrl: files.marksSheet ? files.marksSheet[0].path : null,
-//       draftSampleUrl: files.draftSample ? files.draftSample[0].path : null,
-//     });
-
-//     const savedApplication = await newApplication.save();
-//     console.log("New career application:", savedApplication);
-
-//     res.status(201).json({ message: "Application submitted successfully", data: savedApplication });
-    
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: "Server error", error: err.message });
-//   }
-// });
-
-
-// //API-3
-// app.get("/file", (req, res) => {
-//   const fileName = req.query.name;
-//   if (!fileName) return res.status(400).send("File name is required");
-
-//   const filePath = path.join(__dirname, "uploads", fileName);
-//   res.sendFile(filePath, (err) => {
-//     if (err) res.status(404).send("File not found");
-//   });
-// });
-
-
-// // ----------------------
-// app.listen(5000, () => console.log("Server running on port 5000"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -236,6 +83,7 @@ app.post("/form", async (req, res) => {
 
     res.status(201).json({ message: "Form submitted successfully", data: savedForm });
   } catch (err) {
+    console.log(err.message)
     console.error(err);
     res.status(500).json({ message: "Server error", error: err.message });
   }
@@ -282,6 +130,7 @@ app.post("/career", cpUpload, async (req, res) => {
     res.status(201).json({ message: "Application submitted successfully", data: savedApplication });
     
   } catch (err) {
+    console.log(err.message)
     console.error(err);
     res.status(500).json({ message: "Server error", error: err.message });
   }

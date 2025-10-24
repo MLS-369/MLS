@@ -6,9 +6,15 @@
 }
 
 /* 🌙 DARK THEME */
-.blogs-container.dark {
+.blogs-container.dark-theme {
   background-color: #000000; /* black */
   color: #ffffff; /* default text color */
+}
+
+/* ☀️ LIGHT THEME */
+.blogs-container.light-theme {
+  background-color: #f8f9fa; /* light background */
+  color: #212529; /* dark text */
 }
 
 /* Header */
@@ -19,13 +25,27 @@
 
 .blogs-header h1 {
   font-size: 2.8rem;
-  color: #ffffff; /* white */
   margin-bottom: 0.5rem;
+}
+
+.blogs-container.dark-theme .blogs-header h1 {
+  color: #ffffff; /* white */
+}
+
+.blogs-container.light-theme .blogs-header h1 {
+  color: #d4af37; /* gold */
 }
 
 .blogs-header p {
   font-size: 1.2rem;
+}
+
+.blogs-container.dark-theme .blogs-header p {
   color: #aaaaaa; /* soft gray */
+}
+
+.blogs-container.light-theme .blogs-header p {
+  color: #6c757d; /* dark gray */
 }
 
 /* Blog cards */
@@ -38,29 +58,59 @@
 }
 
 .blog-card {
-  background-color: #111111; /* slightly lighter black */
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blogs-container.dark-theme .blog-card {
+  background-color: #111111; /* slightly lighter black */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+.blogs-container.light-theme .blog-card {
+  background-color: #ffffff; /* white */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .blog-card:hover {
   transform: translateY(-8px);
+}
+
+.blogs-container.dark-theme .blog-card:hover {
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.25); /* gold glow */
+}
+
+.blogs-container.light-theme .blog-card:hover {
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25); /* gold glow */
 }
 
 .blog-card h2 {
   font-size: 1.5rem;
-  color: #ffffff; /* white heading */
   margin-bottom: 0.5rem;
+}
+
+.blogs-container.dark-theme .blog-card h2 {
+  color: #ffffff; /* white heading */
+}
+
+.blogs-container.light-theme .blog-card h2 {
+  color: #212529; /* dark heading */
 }
 
 .blog-card p {
   font-size: 1rem;
-  color: #aaaaaa; /* grey paragraph */
   line-height: 1.6;
   margin-bottom: 1.5rem;
+}
+
+.blogs-container.dark-theme .blog-card p {
+  color: #aaaaaa; /* grey paragraph */
+}
+
+.blogs-container.light-theme .blog-card p {
+  color: #6c757d; /* dark grey paragraph */
 }
 
 /* Buttons */

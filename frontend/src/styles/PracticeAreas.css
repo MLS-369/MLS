@@ -1,52 +1,20 @@
-/* /* 
 /* ============================================
    PracticeAreas.css
    ============================================ */
 
-.practice-popup {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translate(-50%, 10px);
-  background-color: #1f1f1f;
-  color: #f5f5f5;
-  border: 1px solid #FDB913;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  width: 250px;
-  text-align: center;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  z-index: 100;
-  animation: fadeIn 0.3s ease forwards;
-}
-
-.practice-card {
-  position: relative; /* Add this to make popup position relative to the card */
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 0px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 10px);
-  }
-} */
-
-
-
-
-/* -------------------------------
-   Modal (Popup) Styling
---------------------------------*/
 .practice-areas {
-  background-color: black;
-  color: #ffffff;
   padding: 5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.practice-areas.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.practice-areas.light-theme {
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
 .practice-areas-container {
@@ -63,13 +31,27 @@
   margin-top: 60px;
   font-size: 2.5rem;
   font-weight: bold;
-  color: #FDB913;
   margin-bottom: 1rem;
 }
 
+.practice-areas.dark-theme .practice-areas-title {
+  color: #FDB913;
+}
+
+.practice-areas.light-theme .practice-areas-title {
+  color: #d4af37;
+}
+
 .practice-areas-subtitle {
-  color: #9ca3af;
   font-size: 1.125rem;
+}
+
+.practice-areas.dark-theme .practice-areas-subtitle {
+  color: #9ca3af;
+}
+
+.practice-areas.light-theme .practice-areas-subtitle {
+  color: #6c757d;
 }
 
 .practice-areas-grid {
@@ -79,25 +61,51 @@
 }
 
 .practice-card {
-  background-color: #1a1a1a;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  border: 1px solid #333;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  height: 170px;
+  position: relative;
+  border-radius: 12px;
+  padding: 25px;
   text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.practice-areas.dark-theme .practice-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+}
+
+.practice-areas.light-theme .practice-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
 }
 
 .practice-card:hover {
+  transform: translateY(-5px);
+}
+
+.practice-areas.dark-theme .practice-card:hover {
   border-color: #FDB913;
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(253, 185, 19, 0.1);
+  box-shadow: 0 6px 15px rgba(253, 185, 19, 0.15);
+}
+
+.practice-areas.light-theme .practice-card:hover {
+  border-color: #d4af37;
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.15);
 }
 
 .practice-card-icon {
-  color: #FDB913;
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
+}
+
+.practice-areas.dark-theme .practice-card-icon {
+  color: #FDB913;
+}
+
+.practice-areas.light-theme .practice-card-icon {
+  color: #d4af37;
 }
 
 .practice-card:hover .practice-card-icon {
@@ -107,6 +115,151 @@
 .practice-card-title {
   font-weight: 600;
   font-size: 1.125rem;
+}
+
+.hover-text {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.practice-areas.dark-theme .hover-text {
+  color: #FDB913;
+}
+
+.practice-areas.light-theme .hover-text {
+  color: #d4af37;
+}
+
+.practice-card:hover .hover-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(3px);
+}
+
+/* Modal Styling */
+.practice-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeInOverlay 0.3s ease-in-out forwards;
+}
+
+.practice-modal {
+  border-radius: 1rem;
+  padding: 2.5rem;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh;
+  animation: scaleUp 0.3s ease forwards;
+}
+
+.practice-areas.dark-theme .practice-modal {
+  background-color: #121212;
+  border: 1px solid #FDB913;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(253, 185, 19, 0.2);
+}
+
+.practice-areas.light-theme .practice-modal {
+  background-color: #ffffff;
+  border: 1px solid #d4af37;
+  color: #212529;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.practice-modal h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.practice-areas.dark-theme .practice-modal h2 {
+  color: #FDB913;
+}
+
+.practice-areas.light-theme .practice-modal h2 {
+  color: #d4af37;
+}
+
+.practice-modal p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.practice-areas.dark-theme .practice-modal p {
+  color: #ccc;
+}
+
+.practice-areas.light-theme .practice-modal p {
+  color: #6c757d;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.practice-areas.dark-theme .close-btn {
+  color: #FDB913;
+}
+
+.practice-areas.light-theme .close-btn {
+  color: #d4af37;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+.modal-icon {
+  margin-bottom: 1rem;
+}
+
+.modal-points {
+  text-align: left;
+  list-style-type: disc;
+  margin-left: 25px;
+  line-height: 1.6;
+}
+
+.practice-areas.dark-theme .modal-points {
+  color: #ccc;
+}
+
+.practice-areas.light-theme .modal-points {
+  color: #6c757d;
+}
+
+.modal-points .selected {
+  text-align: justify;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* Responsive Grid */
@@ -124,193 +277,4 @@
   .practice-areas-title {
     font-size: 3rem;
   }
-}
-
-/* -------------------------------
-   Modal (Popup) Styling
---------------------------------*/
-
-.practice-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeInOverlay 0.3s ease-in-out forwards;
-}
-
-.practice-modal {
-  background-color: #121212;
-  border: 1px solid #FDB913;
-  border-radius: 1rem;
-  padding: 2.5rem;
-  max-width: 600px;
-  width: 90%;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 0 30px rgba(253, 185, 19, 0.2);
-  animation: scaleUp 0.3s ease forwards;
-}
-
-.practice-modal h2 {
-  color: #FDB913;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.practice-modal p {
-  color: #ccc;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  color: #FDB913;
-  font-size: 1.8rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.close-btn:hover {
-  transform: scale(1.2);
-}
-
-.modal-icon {
-  margin-bottom: 1rem;
-}
-
-@keyframes fadeInOverlay {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes scaleUp {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-.practice-card {
-  height: 170px;
-  position: relative;
-  background: black;
-  border-radius: 12px;
-  padding: 25px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.practice-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-.hover-text {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  font-size: 0.9rem;
-  color: #FDB913;
-  font-weight: 500;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.practice-card:hover .hover-text {
-  opacity: 1;
-  transform: translateX(-50%) translateY(3px);
-}
-.practice-card {
-  position: relative;
-  background: #1a1a1a;
-  border-radius: 12px;
-  padding: 25px;
-  text-align: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.practice-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-.hover-text {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  font-size: 0.9rem;
-  color: #FDB913;
-  font-weight: 500;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.practice-card:hover .hover-text {
-  opacity: 1;
-  transform: translateX(-50%) translateY(3px);
-}
-
-.practice-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-.practice-modal {
-  background: black;
-  border-radius: 12px;
-  max-width: 700px;
-  width: 90%;
-  padding: 30px;
-  position: relative;
-  overflow-y: auto;
-  max-height: 90vh;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.modal-icon {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.modal-description {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.modal-list {
-  list-style-type: disc;
-  margin-left: 25px;
-  color: #555;
-  line-height: 1.6;
-}
-.selected { 
-  text-align: justify;
 }

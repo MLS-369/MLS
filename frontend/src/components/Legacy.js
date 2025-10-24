@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "../styles/Legacy.css";
 import WordCount from "./WordCount";
+import { useTheme } from "./ThemeContext";
 
 const Legacy = () => {
   const [hovered, setHovered] = useState("");
+  const { isDarkTheme } = useTheme();
 
   const topics = [
     {
@@ -15,7 +17,7 @@ const Legacy = () => {
   ];
 
   return (
-    <div className="legacy-container">
+    <div className={`legacy-container ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div className="timeline">
         <div className="timeline-line"></div>
 

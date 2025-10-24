@@ -2,9 +2,17 @@
   min-height: 100vh;
   padding-top: 130px;
   padding: 130px 2rem 4rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.events-container.dark-theme {
   background-color: #000000;
   color: #ffffff;
-  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.events-container.light-theme {
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
 .events-header {
@@ -14,13 +22,27 @@
 
 .events-header h1 {
   font-size: 2.8rem;
-  color: #ffffff;
   margin-bottom: 0.5rem;
+}
+
+.events-container.dark-theme .events-header h1 {
+  color: #ffffff;
+}
+
+.events-container.light-theme .events-header h1 {
+  color: #d4af37;
 }
 
 .events-header p {
   font-size: 1.2rem;
+}
+
+.events-container.dark-theme .events-header p {
   color: #aaaaaa;
+}
+
+.events-container.light-theme .events-header p {
+  color: #6c757d;
 }
 
 .events-list {
@@ -32,29 +54,59 @@
 }
 
 .event-card {
-  background-color: #111111;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.events-container.dark-theme .event-card {
+  background-color: #111111;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+.events-container.light-theme .event-card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .event-card:hover {
   transform: translateY(-8px);
+}
+
+.events-container.dark-theme .event-card:hover {
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.25);
+}
+
+.events-container.light-theme .event-card:hover {
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
 }
 
 .event-card h2 {
   font-size: 1.5rem;
-  color: #ffffff;
   margin-bottom: 0.5rem;
+}
+
+.events-container.dark-theme .event-card h2 {
+  color: #ffffff;
+}
+
+.events-container.light-theme .event-card h2 {
+  color: #212529;
 }
 
 .event-card p {
   font-size: 1rem;
-  color: #aaaaaa;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+}
+
+.events-container.dark-theme .event-card p {
+  color: #aaaaaa;
+}
+
+.events-container.light-theme .event-card p {
+  color: #6c757d;
 }
 
 .read-more {

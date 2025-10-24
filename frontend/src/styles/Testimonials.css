@@ -4,9 +4,18 @@
    ============================================ */
 
 .testimonials {
+  padding: 5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.testimonials.dark-theme {
   background-color: #1a1a1a;
   color: #ffffff;
-  padding: 5rem 1.5rem;
+}
+
+.testimonials.light-theme {
+  background-color: #ffffff;
+  color: #212529;
 }
 
 /* removed global theme overrides for testimonials */
@@ -20,8 +29,15 @@
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  color: #FDB913;
   margin-bottom: 3rem;
+}
+
+.testimonials.dark-theme .testimonials-title {
+  color: #FDB913;
+}
+
+.testimonials.light-theme .testimonials-title {
+  color: #d4af37;
 }
 
 .testimonials-marquee {
@@ -40,14 +56,23 @@
 }
 
 .testimonial-card {
-  background-color: #000;
   padding: 3rem;
   border-radius: 0.5rem;
-  border: 1px solid #333;
+  border: 1px solid;
   box-sizing: border-box;
   width: 280px;
   height: 390px;
   flex: 0 0 400px;
+}
+
+.testimonials.dark-theme .testimonial-card {
+  background-color: #000;
+  border-color: #333;
+}
+
+.testimonials.light-theme .testimonial-card {
+  background-color: #f8f9fa;
+  border-color: #e0e0e0;
 }
 
 .testimonial-stars {
@@ -58,8 +83,15 @@
 }
 
 .star-icon {
+  fill: currentColor;
+}
+
+.testimonials.dark-theme .star-icon {
   color: #FDB913;
-  fill: #FDB913;
+}
+
+.testimonials.light-theme .star-icon {
+  color: #d4af37;
 }
 
 .testimonial-text {
@@ -68,7 +100,14 @@
   text-align: center;
   margin-bottom: 1.5rem;
   line-height: 1.8;
+}
+
+.testimonials.dark-theme .testimonial-text {
   color: #d1d1d1;
+}
+
+.testimonials.light-theme .testimonial-text {
+  color: #6c757d;
 }
 
 .testimonial-author {
@@ -77,13 +116,27 @@
 
 .testimonial-name {
   font-weight: bold;
-  color: #FDB913;
   font-size: 1.125rem;
   margin-bottom: 0.25rem;
 }
 
+.testimonials.dark-theme .testimonial-name {
+  color: #FDB913;
+}
+
+.testimonials.light-theme .testimonial-name {
+  color: #d4af37;
+}
+
 .testimonial-position {
+}
+
+.testimonials.dark-theme .testimonial-position {
   color: #9ca3af;
+}
+
+.testimonials.light-theme .testimonial-position {
+  color: #6c757d;
 }
 
 /* dots removed in marquee layout */

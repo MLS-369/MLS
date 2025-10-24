@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { ChevronDown, Menu, X, Sun, Moon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ChevronDown, Menu, X, Sun, Moon, Infinity } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import b_1 from "../b_1.png";
-import {  useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isAcademicsOpen, setIsAcademicsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
-  const [closeTimeout, setCloseTimeout] = useState(null);
+  const [closeTimeout, setCloseTimeout] = useState(true);
+
+  const { isDarkTheme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -19,19 +20,34 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleTheme = () => setIsDarkTheme(!isDarkTheme);
-
   const handleMouseEnter = () => {
-    if (closeTimeout) {
+    if (!closeTimeout) {
       clearTimeout(closeTimeout);
-      setCloseTimeout(null);
+      setCloseTimeout(Infinity);
     }
     setIsAcademicsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    const timeout = setTimeout(() => setIsAcademicsOpen(false), 300);
+    const timeout = setTimeout(() => setIsAcademicsOpen(false), Infinity);
     setCloseTimeout(timeout);
+  };
+
+  // Function to handle navigation to home page sections
+  const handleSectionNavigation = (sectionId) => {
+    const currentPath = window.location.pathname;
+
+    if (currentPath === "/") {
+      // If already on home page, just scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If on different page, navigate to home with section
+      navigate(`/#${sectionId}`);
+    }
+    setIsOpen(false); // Close mobile menu
   };
 
   return (
@@ -42,7 +58,7 @@ const Navbar = () => {
     >
       <div className="navbar-container">
         <div className="navbar-content">
-          <a href="#home" className="navbar-logo" onClick={() => navigate('/')}>
+          <a href="#home" className="navbar-logo" onClick={() => navigate("/")}>
             <img src={b_1} className="logo" alt="logo" />
             <div className="logoname">
               <p className="first">MLS & Co</p>
@@ -52,14 +68,25 @@ const Navbar = () => {
 
           <div className="navbar-menu">
             <Link to="/legacy">Legacy</Link>
-            <a href="#practice">Practice Areas</a>
-            <a href="#people">Our People</a>
+            <button
+              className="navbar-section-link"
+              onClick={() => handleSectionNavigation("practice")}
+            >
+              Practice Areas
+            </button>
+            <button
+              className="navbar-section-link"
+              onClick={() => handleSectionNavigation("people")}
+            >
+              Our People
+            </button>
             <Link to="/careers">Careers</Link>
 
             <div
               className="navbar-dropdown"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onClick={handleMouseEnter}
             >
               <button className="navbar-dropdown-btn">
                 Academics <ChevronDown size={16} />
@@ -78,10 +105,16 @@ const Navbar = () => {
               )}
             </div>
 
-            <a href="#contact">Contact Us</a>
+            <button
+              className="navbar-section-link"
+              onClick={() => handleSectionNavigation("contact")}
+            >
+              Contact Us
+            </button>
           </div>
 
           <div className="navbar-actions">
+            {/* ✅ Theme Toggle Button */}
             <button
               onClick={toggleTheme}
               className="navbar-theme-btn"
@@ -89,6 +122,8 @@ const Navbar = () => {
             >
               {isDarkTheme ? <Sun size={20} /> : <Moon size={20} />}
             </button>
+
+            {/* ✅ Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="navbar-mobile-toggle"
@@ -101,15 +136,24 @@ const Navbar = () => {
 
         {isOpen && (
           <div className="navbar-mobile-menu">
-            <Link to="/about" onClick={() => setIsOpen(false)}>
+            <button
+              className="navbar-mobile-link"
+              onClick={() => handleSectionNavigation("about")}
+            >
               About Us
-            </Link>
-            <Link to="/practice" onClick={() => setIsOpen(false)}>
+            </button>
+            <button
+              className="navbar-mobile-link"
+              onClick={() => handleSectionNavigation("practice")}
+            >
               Practice Areas
-            </Link>
-            <Link to="/people" onClick={() => setIsOpen(false)}>
+            </button>
+            <button
+              className="navbar-mobile-link"
+              onClick={() => handleSectionNavigation("people")}
+            >
               Our People
-            </Link>
+            </button>
             <Link to="/careers" onClick={() => setIsOpen(false)}>
               Careers
             </Link>
@@ -132,9 +176,12 @@ const Navbar = () => {
               </div>
             </details>
 
-            <Link to="/contact" onClick={() => setIsOpen(false)}>
+            <button
+              className="navbar-mobile-link"
+              onClick={() => handleSectionNavigation("contact")}
+            >
               Contact Us
-            </Link>
+            </button>
           </div>
         )}
       </div>

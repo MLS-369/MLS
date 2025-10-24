@@ -69,3 +69,14 @@ code {
     monospace;
 }
 
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+body.light-theme {
+  background-color: #f0f0f0;
+  color: #000000;
+  transition: background-color 0.3s ease;
+}

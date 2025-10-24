@@ -1,11 +1,14 @@
 import React from "react";
 import "../styles/Block.css";
 import {  useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
 
-const Blogs = ({ isDarkTheme }) => {
+const Blogs = () => {
   const navigate = useNavigate();
+  const { isDarkTheme } = useTheme();
+  
   return (
-    <div className={`blogs-container ${isDarkTheme ? "dark" : "light"}`}>
+    <div className={`blogs-container ${isDarkTheme ? "dark-theme" : "light-theme"}`}>
       <div className="blogs-header">
         <h1>Our Blogs</h1>
         <p>Explore insights, opinions, and updates from our legal experts.</p>

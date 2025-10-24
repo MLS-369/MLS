@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/Careers.css";
+import { useTheme } from "./ThemeContext";
 
 const Careers = () => {
   const navigate = useNavigate();
+  const { isDarkTheme } = useTheme();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -97,7 +99,7 @@ const Careers = () => {
   };
 
   return (
-    <div className="internship-container">
+    <div className={`internship-container ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div className="form-wrapper">
         <h1 className="form-title">Career Application</h1>
         <p className="form-subtitle">
@@ -309,7 +311,7 @@ const Careers = () => {
               </label>
               <span className="file-name">{fileName}</span>
             </div>
-            <div className="form-group">
+            <div className="form-group cover-letter">
               <label>Cover Letter (Optional)</label>
               <textarea
                 name="coverLetter"

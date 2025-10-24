@@ -7,18 +7,26 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0a0a0a;
-  color: #ffffff;
 }
 
 /* Container */
 .internship-container {
   min-height: 100vh;
-  background-color: #0a0a0a;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  transition: all 0.3s ease;
+}
+
+.internship-container.dark-theme {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+.internship-container.light-theme {
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
 /* Form wrapper */
@@ -32,24 +40,47 @@ body {
 /* Form Titles */
 .form-title {
   font-size: 3rem;
-  color: #f4c542;
   text-align: center;
   margin-bottom: 1rem;
   font-family: 'Playfair Display', serif;
 }
 
+.internship-container.dark-theme .form-title {
+  color: #f4c542;
+}
+
+.internship-container.light-theme .form-title {
+  color: #d4af37;
+}
+
 .form-subtitle {
   text-align: center;
-  color: #cccccc;
   font-size: 1.1rem;
   margin-bottom: 3rem;
 }
 
+.internship-container.dark-theme .form-subtitle {
+  color: #cccccc;
+}
+
+.internship-container.light-theme .form-subtitle {
+  color: #6c757d;
+}
+
 /* Form */
 .application-form {
-  background-color: #1a1a1a;
   border-radius: 8px;
   padding: 3rem;
+  transition: all 0.3s ease;
+}
+
+.internship-container.dark-theme .application-form {
+  background-color: #1a1a1a;
+}
+
+.internship-container.light-theme .application-form {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
 }
 
 .form-section {
@@ -58,9 +89,16 @@ body {
 
 .section-title {
   font-size: 1.5rem;
-  color: #f4c542;
   margin-bottom: 1.5rem;
   font-family: 'Playfair Display', serif;
+}
+
+.internship-container.dark-theme .section-title {
+  color: #f4c542;
+}
+
+.internship-container.light-theme .section-title {
+  color: #d4af37;
 }
 
 .form-row {
@@ -76,31 +114,78 @@ body {
 }
 
 .form-group label {
-  color: #ffffff;
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
 }
 
+.internship-container.dark-theme .form-group label {
+  color: #ffffff;
+}
+
+.internship-container.light-theme .form-group label {
+  color: #9a9b9c;
+  background-color: white;
+}
+
+.internship-container.dark-theme .cover-letter {
+  color: #ffffff;
+}
+
+.internship-container.light-theme .cover-letter{
+  color: #9a9b9c;
+  background-color: white;
+}
+
 .form-group input,
 .form-group textarea {
-  background-color: #0a0a0a;
-  border: 1px solid #333333;
+  border: 1px solid;
   border-radius: 4px;
   padding: 0.75rem;
-  color: #ffffff;
   font-size: 0.95rem;
   transition: border-color 0.3s;
 }
 
+.internship-container.dark-theme .form-group input,
+.internship-container.dark-theme .form-group textarea {
+  background-color: #0a0a0a;
+  border-color: #333333;
+  color: #ffffff;
+}
+
+.internship-container.light-theme .form-group input,
+.internship-container.light-theme .form-group textarea {
+  background-color: #ffffff;
+  border-color: #e0e0e0;
+  color: #212529;
+}
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
+}
+
+.internship-container.dark-theme .form-group input::placeholder,
+.internship-container.dark-theme .form-group textarea::placeholder {
   color: #666666;
+}
+
+.internship-container.light-theme .form-group input::placeholder,
+.internship-container.light-theme .form-group textarea::placeholder {
+  color: #999999;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
+}
+
+.internship-container.dark-theme .form-group input:focus,
+.internship-container.dark-theme .form-group textarea:focus {
   border-color: #f4c542;
+}
+
+.internship-container.light-theme .form-group input:focus,
+.internship-container.light-theme .form-group textarea:focus {
+  border-color: #d4af37;
 }
 
 /* Full-width for resume & cover letter */

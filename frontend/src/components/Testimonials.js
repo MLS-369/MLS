@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import '../styles/Testimonials.css';
+import { useTheme } from './ThemeContext';
 
 const Testimonials = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const { isDarkTheme } = useTheme();
   const testimonials = [
     {
       text: "Their legal expertise and strategic approach were invaluable to our case. The team at MLS&Co is responsive, professional, and highly effective.",
@@ -38,7 +40,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className={`testimonials`} id='awards'>
+    <section className={`testimonials ${isDarkTheme ? 'dark-theme' : 'light-theme'}`} id='awards'>
       <div className="testimonials-container">
         <h2 className="testimonials-title">Testimonials</h2>
         <div className="testimonials-marquee">

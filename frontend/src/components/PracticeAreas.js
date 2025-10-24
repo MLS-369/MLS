@@ -18,9 +18,11 @@ import {
   Laptop
 } from "lucide-react";
 import '../styles/PracticeAreas.css';
+import { useTheme } from './ThemeContext';
 
 const PracticeAreas = () => {
   const [selectedArea, setSelectedArea] = useState(null);
+  const { isDarkTheme } = useTheme();
   
   const areas = [
   {
@@ -324,7 +326,7 @@ const PracticeAreas = () => {
 ];
 
   return (
-    <section id="practice" className="practice-areas">
+    <section id="practice" className={`practice-areas ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div className="practice-areas-container">
         <div className="practice-areas-header">
           <h2 className="practice-areas-title">Our Practice Areas</h2>

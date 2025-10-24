@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/About.css';
 import {Link} from 'react-router-dom';
+import { useTheme } from './ThemeContext';
 
 const About = () => {
   const aboutRef = useRef(null);
+  const { isDarkTheme } = useTheme();
 
   useEffect(() => {
     const aboutSection = aboutRef.current;
@@ -31,7 +33,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="about">
+    <section id="about" className={`about ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div ref={aboutRef} className="about-container">
           <div className="about-text">
             <h2>Our Firm</h2>

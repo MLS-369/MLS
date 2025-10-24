@@ -2,9 +2,17 @@
   min-height: 100vh;
   padding-top: 130px;
   padding: 130px 2rem 4rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.publications-container.dark-theme {
   background-color: #000000;
   color: #ffffff;
-  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.publications-container.light-theme {
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
 .publications-header {
@@ -14,13 +22,27 @@
 
 .publications-header h1 {
   font-size: 2.8rem;
-  color: #ffffff;
   margin-bottom: 0.5rem;
+}
+
+.publications-container.dark-theme .publications-header h1 {
+  color: #ffffff;
+}
+
+.publications-container.light-theme .publications-header h1 {
+  color: #d4af37;
 }
 
 .publications-header p {
   font-size: 1.2rem;
+}
+
+.publications-container.dark-theme .publications-header p {
   color: #aaaaaa;
+}
+
+.publications-container.light-theme .publications-header p {
+  color: #6c757d;
 }
 
 .publications-list {
@@ -32,29 +54,59 @@
 }
 
 .publication-card {
-  background-color: #111111;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publications-container.dark-theme .publication-card {
+  background-color: #111111;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+.publications-container.light-theme .publication-card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .publication-card:hover {
   transform: translateY(-8px);
+}
+
+.publications-container.dark-theme .publication-card:hover {
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.25);
+}
+
+.publications-container.light-theme .publication-card:hover {
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
 }
 
 .publication-card h2 {
   font-size: 1.5rem;
-  color: #ffffff;
   margin-bottom: 0.5rem;
+}
+
+.publications-container.dark-theme .publication-card h2 {
+  color: #ffffff;
+}
+
+.publications-container.light-theme .publication-card h2 {
+  color: #212529;
 }
 
 .publication-card p {
   font-size: 1rem;
-  color: #aaaaaa;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+}
+
+.publications-container.dark-theme .publication-card p {
+  color: #aaaaaa;
+}
+
+.publications-container.light-theme .publication-card p {
+  color: #6c757d;
 }
 
 .read-more {

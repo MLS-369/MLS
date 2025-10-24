@@ -2,10 +2,19 @@
    Footer.css
    ============================================ */
 .footer {
-  background-color: #FDB913;
-  color: #000000;
   padding: 3rem 1.5rem;
   text-align: justify;
+  transition: all 0.3s ease;
+}
+
+.footer.dark-theme {
+  background-color: #FDB913;
+  color: #000000;
+}
+
+.footer.light-theme {
+  background-color: #d4af37;
+  color: #ffffff;
 }
 
 /* removed global theme overrides for footer */
@@ -62,9 +71,16 @@
 }
 
 .footer-links a {
-  color: #000000;
   text-decoration: none;
   transition: all 0.3s ease;
+}
+
+.footer.dark-theme .footer-links a {
+  color: #000000;
+}
+
+.footer.light-theme .footer-links a {
+  color: #ffffff;
 }
 
 .footer-links a:hover {
@@ -74,9 +90,16 @@
 
 /* Contact Section */
 .footer-contact-section {
-  border-top: 4px solid #000000;
   padding-top: 2rem;
   margin-top: 2rem;
+}
+
+.footer.dark-theme .footer-contact-section {
+  border-top: 4px solid #000000;
+}
+
+.footer.light-theme .footer-contact-section {
+  border-top: 4px solid #ffffff;
 }
 
 .footer-contact-wrapper {

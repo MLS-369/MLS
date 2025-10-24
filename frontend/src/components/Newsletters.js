@@ -1,10 +1,14 @@
 import React from "react";
 import "../styles/Newsletter.css";
 import {  useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
+
 const Newsletters = () => {
   const navigate = useNavigate();
+  const { isDarkTheme } = useTheme();
+  
   return (
-    <div className="newsletters-container dark">
+    <div className={`newsletters-container ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div className="newsletters-header">
         <h1>Our Newsletters</h1>
         <p>Stay updated with the latest legal insights and firm updates.</p>

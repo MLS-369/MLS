@@ -69,10 +69,7 @@
   transition: all 0.3s ease;
 }
 
-.award-card:hover {
-  /* border-color: #FDB913; */
-  /* transform: scale(1.05); */
-}
+
 
 .award-icon {
   color: #FDB913;

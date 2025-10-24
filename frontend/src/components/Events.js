@@ -1,10 +1,14 @@
 import React from "react";
 import "../styles/Events.css";
 import {  useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
+
 const Events = () => {
   const navigate = useNavigate();
+  const { isDarkTheme } = useTheme();
+  
   return (
-    <div className="events-container dark">
+    <div className={`events-container ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div className="events-header">
         <h1>Upcoming Events</h1>
         <p>Join us for seminars, workshops, and conferences organized by MLS&Co.</p>

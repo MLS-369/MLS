@@ -27,11 +27,13 @@
 
 import React from 'react';
 import '../styles/Hero.css';
+import { useTheme } from './ThemeContext';
 
-const Hero = ({ theme }) => {
-  // theme should be either "light-theme" or "dark-theme"
+const Hero = () => {
+  const { isDarkTheme } = useTheme();
+  
   return (
-    <section className={`hero ${theme}`} id='home'>
+    <section className={`hero ${isDarkTheme ? 'dark-theme' : 'light-theme'}`} id='home'>
       <div className="hero-content">
         <h1 className="hero-title">
           MEN LEGATUM SANCTITAS
