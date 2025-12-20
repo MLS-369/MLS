@@ -93,11 +93,6 @@
   color: #212529;
 }
 
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-}
-
 .contact-form.dark-theme .form-field input:focus,
 .contact-form.dark-theme .form-field select:focus,
 .contact-form.dark-theme .form-field textarea:focus {

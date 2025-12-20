@@ -29,7 +29,7 @@ const Footer = () => {
             </h4>
             <ul className="footer-links">
               <li>
-                <a href="#firm">Our Firm</a>
+                <a href="#about">Our Firm</a>
               </li>
               <li>
                 <a href="#people">Our People</a>
