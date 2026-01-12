@@ -31,7 +31,7 @@
 
 .timeline-line {
   position: absolute;
-  top: 14px;
+  top: 7px;
   left: 6%;
   right: 22%;
   height: 1px;
@@ -91,20 +91,21 @@
   color: #d4af37;
 }
 
-/* Text that shows on hover */
 .hover-box {
   position: absolute;
-  top: 60px;
+  top: 40px;
   border-radius: 8px;
-  padding: 8px 10px;
+  padding: 15px;
   font-size: 14px;
-  width: 180px;
+  width: 300px;
   text-align: center;
   opacity: 0;
-  transform: translateY(10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
   transition: all 0.3s ease;
-  pointer-events: none;
-  z-index: 2;
+  pointer-events: auto;
+  z-index: 100;
+  line-height: 1.5;
 }
 
 .legacy-container.dark-theme .hover-box {
@@ -121,24 +122,20 @@
 
 .hover-box.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 .unmatched {
-  margin-left: 80px;
-  padding-top: 8px;
+  margin-left: 100px;
+  margin-top: -15px;
+  padding-top: 0;
+  padding-bottom: 20px;
   display: flex;
   align-items: center;
-  height: 30px;
+  height: auto;
 }
 
-.legacy-container.dark-theme .unmatched {
-  border-top: 1px solid #c49b66;
-}
 
-.legacy-container.light-theme .unmatched {
-  border-top: 1px solid #d4af37;
-}
 
 .unmatched h2 {
   font-size: 38px;

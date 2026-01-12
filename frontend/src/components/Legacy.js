@@ -6,6 +6,21 @@ import { useTheme } from "./ThemeContext";
 const Legacy = () => {
   const [hovered, setHovered] = useState("");
   const { isDarkTheme } = useTheme();
+  const timeoutRef = React.useRef(null);
+
+  const handleMouseEnter = (name) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setHovered(name);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setHovered("");
+    }, 300); // 300ms delay to allow moving to the box
+  };
 
   const topics = [
     {
@@ -25,8 +40,8 @@ const Legacy = () => {
           <div
             key={index}
             className="timeline-item"
-            onMouseEnter={() => setHovered(topic.name)}
-            onMouseLeave={() => setHovered("")}
+            onMouseEnter={() => handleMouseEnter(topic.name)}
+            onMouseLeave={handleMouseLeave}
           >
             <div className="dot"></div>
             <p className="topic">{topic.name}</p>
