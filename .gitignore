@@ -3,3 +3,6 @@ frontend/node_modules/
 
 # Backend node modules
 backend/node_modules/
+
+backend/clientquery/
+backend/internships/
