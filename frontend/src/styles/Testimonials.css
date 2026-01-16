@@ -1,4 +1,3 @@
-
 /* ============================================
    Testimonials.css
    ============================================ */
@@ -43,6 +42,7 @@
 .testimonials-marquee {
   overflow: hidden;
 }
+
 .testimonials-track {
   display: flex;
   gap: 1.5rem;
@@ -50,9 +50,19 @@
   width: max-content;
   animation: testimonials-scroll 28s linear infinite;
 }
+
 @keyframes testimonials-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonials-track:hover {
+  animation-play-state: paused;
 }
 
 .testimonial-card {
@@ -126,9 +136,6 @@
 
 .testimonials.light-theme .testimonial-name {
   color: #d4af37;
-}
-
-.testimonial-position {
 }
 
 .testimonials.dark-theme .testimonial-position {

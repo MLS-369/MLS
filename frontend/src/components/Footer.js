@@ -1,13 +1,12 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Facebook, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
-import final_map from "../final_map.png"
 import "../styles/Footer.css";
 import { useTheme } from "./ThemeContext";
 
 const Footer = () => {
   const { isDarkTheme } = useTheme();
-  
+
   return (
     <footer className={`footer ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <div className="footer-container">
@@ -94,7 +93,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={final_map} alt="Map of Firm" className="map" />
+                <img src="/final_map.png" alt="Map of Firm" className="map" />
               </a>
             </div>
           </div>

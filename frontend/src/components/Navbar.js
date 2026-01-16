@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { ChevronDown, Menu, X, Sun, Moon, Infinity } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
-import b_1 from "../b_1.png";
 import { useTheme } from "./ThemeContext";
 
 const Navbar = () => {
@@ -52,14 +51,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar ${isDarkTheme ? "dark-theme" : "light-theme"} ${
-        scrolled ? "scrolled" : ""
-      }`}
+      className={`navbar ${isDarkTheme ? "dark-theme" : "light-theme"} ${scrolled ? "scrolled" : ""
+        }`}
     >
       <div className="navbar-container">
         <div className="navbar-content">
           <a href="#home" className="navbar-logo" onClick={() => navigate("/")}>
-            <img src={b_1} className="logo" alt="logo" />
+            <img src="/b_1.png" className="logo" alt="logo" />
             <div className="logoname">
               <p className="first">MLS & Co</p>
               <p className="last">LAW FIRM</p>
