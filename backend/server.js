@@ -6,19 +6,24 @@ const path = require("path");
 const fs = require("fs");
 const { Parser } = require("json2csv");
 require("dotenv").config();
+const AWS = require("aws-sdk");
 
-const Form = require("./models/Form"); // old form
-const Application = require("./models/Application"); // careers form
+// ----------------------
+// AWS S3 CONFIG
+// ----------------------
+const s3 = new AWS.S3({
+  region: process.env.AWS_REGION,
+});
+
+// ----------------------
+// MODELS
+// ----------------------
+const Form = require("./models/Form");
+const Application = require("./models/Application");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-// ----------------------
-// SERVE INTERNSHIPS FOLDER
-// ----------------------
-app.use("/internships", express.static(path.join(__dirname, "internships")));
-// Files accessible at: http://localhost:5000/internships/<filename>
 
 // ----------------------
 // MONGODB CONNECTIONS
@@ -34,34 +39,33 @@ const FormModel = formConnection.model("Form", Form.schema);
 const careerConnection = mongoose.createConnection(mongoURLCareer);
 const ApplicationModel = careerConnection.model("Application", Application.schema);
 
-// Connection logs (optional but recommended)
-formConnection.on("connected", () => {
-  console.log("Form DB connected");
-});
-careerConnection.on("connected", () => {
-  console.log("Career DB connected");
-});
-formConnection.on("error", err => {
-  console.error("Form DB error:", err);
-});
-careerConnection.on("error", err => {
-  console.error("Career DB error:", err);
+// Logs
+formConnection.on("connected", () => console.log("Form DB connected"));
+careerConnection.on("connected", () => console.log("Career DB connected"));
+formConnection.on("error", err => console.error("Form DB error:", err));
+careerConnection.on("error", err => console.error("Career DB error:", err));
+
+// ----------------------
+// MULTER CONFIG (MEMORY STORAGE)
+// ----------------------
+const upload = multer({
+  storage: multer.memoryStorage(),
 });
 
 // ----------------------
-// MULTER CONFIG (careers)
+// S3 UPLOAD HELPER
 // ----------------------
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = path.join(__dirname, "internships");
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir);
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-const upload = multer({ storage });
+const uploadToS3 = async (file) => {
+  const params = {
+    Bucket: process.env.S3_BUCKET,
+    Key: `internships/${Date.now()}-${file.originalname}`,
+    Body: file.buffer,
+    ContentType: file.mimetype,
+  };
+
+  const result = await s3.upload(params).promise();
+  return result.Location; // Public S3 URL
+};
 
 // ----------------------
 // ROUTE 1: Old Form + CSV
@@ -82,9 +86,8 @@ app.post("/form", async (req, res) => {
     });
 
     const savedForm = await newForm.save();
-    console.log("New form:", savedForm);
 
-    // CSV LOGIC (clientquery folder)
+    // CSV LOGIC
     const clientQueryDir = path.join(__dirname, "clientquery");
     if (!fs.existsSync(clientQueryDir)) fs.mkdirSync(clientQueryDir);
 
@@ -112,7 +115,7 @@ app.post("/form", async (req, res) => {
 });
 
 // ----------------------
-// ROUTE 2: Careers Form
+// ROUTE 2: Careers Form (S3 Uploads)
 // ----------------------
 const cpUpload = upload.fields([
   { name: "cv", maxCount: 1 },
@@ -126,10 +129,16 @@ app.post("/career", cpUpload, async (req, res) => {
     const body = req.body;
     const files = req.files;
 
-    const getFileUrl = (fileArray) =>
-      fileArray
-        ? `http://localhost:5000/internships/${fileArray[0].filename}`
-        : null;
+    const cvUrl = files.cv ? await uploadToS3(files.cv[0]) : null;
+    const researchSampleUrl = files.researchSample
+      ? await uploadToS3(files.researchSample[0])
+      : null;
+    const marksSheetUrl = files.marksSheet
+      ? await uploadToS3(files.marksSheet[0])
+      : null;
+    const draftSampleUrl = files.draftSample
+      ? await uploadToS3(files.draftSample[0])
+      : null;
 
     const newApplication = new ApplicationModel({
       fullName: body.fullName,
@@ -143,14 +152,13 @@ app.post("/career", cpUpload, async (req, res) => {
       disputeType: body.disputeType,
       preferredMode: body.preferredMode,
       cgpa: body.cgpa,
-      cvUrl: getFileUrl(files.cv),
-      researchSampleUrl: getFileUrl(files.researchSample),
-      marksSheetUrl: getFileUrl(files.marksSheet),
-      draftSampleUrl: getFileUrl(files.draftSample),
+      cvUrl,
+      researchSampleUrl,
+      marksSheetUrl,
+      draftSampleUrl,
     });
 
     const savedApplication = await newApplication.save();
-    console.log("New career application:", savedApplication);
 
     res.status(201).json({
       message: "Application submitted successfully",
@@ -166,16 +174,10 @@ app.post("/career", cpUpload, async (req, res) => {
 });
 
 // ----------------------
-// API-3: View File
+// HEALTH CHECK (ALB)
 // ----------------------
-app.get("/file", (req, res) => {
-  const fileName = req.query.name;
-  if (!fileName) return res.status(400).send("File name is required");
-
-  const filePath = path.join(__dirname, "internships", fileName);
-  res.sendFile(filePath, err => {
-    if (err) res.status(404).send("File not found");
-  });
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
 });
 
 // ----------------------
