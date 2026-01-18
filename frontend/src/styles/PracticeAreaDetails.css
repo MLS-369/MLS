@@ -1,11 +1,21 @@
 .details-container {
   max-width: 800px;
+  width: 90%;
+  /* Responsive width */
   margin: 60px auto;
   background: var(--card);
   color: var(--text);
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .details-container {
+    margin: 30px auto;
+    padding: 20px;
+    width: 95%;
+  }
 }
 
 .details-container button {

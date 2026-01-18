@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
           <div className="footer-section abbrcard">
             <h4 className="abbr">
-              <span className="M">M</span>antle
+              <span className="M M-letter">M</span>antle
             </h4>
             <ul className="footer-links">
               <li>
@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
           <div className="footer-section abbrcard">
             <h4 className="abbr">
-              <span className="M">L</span>egacy
+              <span className="M L-letter">L</span>egacy
             </h4>
             <ul className="footer-links">
               <li>
@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
           <div className="footer-section abbrcard">
             <h4 className="abbr">
-              <span className="M">S</span>cholarly
+              <span className="M S-letter">S</span>cholarly
             </h4>
             <ul className="footer-links">
               <li>
@@ -86,7 +86,7 @@ const Footer = () => {
                 <span>mlslaw.contact@gmail.com</span>
               </div>
             </div>
-            <div className="map-image">
+            <div className="footer-map">
               {/* Added target="_blank" and rel="noopener noreferrer" */}
               <a
                 href="https://maps.app.goo.gl/SpJhoJyydbWDTvJm6"

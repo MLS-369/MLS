@@ -30,6 +30,8 @@
 .our-people-images {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  /* Allow wrapping on small screens */
   gap: 2rem;
   margin-bottom: 2rem;
 }

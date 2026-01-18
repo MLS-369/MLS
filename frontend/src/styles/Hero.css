@@ -3,9 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* move content upward */
+  justify-content: center;
+  /* Center content vertically */
   padding: 1.5rem;
-  padding-top: 20rem; /* pushes content downward slightly from top */
+  padding-top: 8rem;
+  /* Reasonable mobile spacing relative to fixed navbar */
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -49,10 +51,12 @@
     opacity: 0;
     transform: translateY(100px);
   }
+
   60% {
     opacity: 1;
     transform: translateY(-10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);

@@ -163,6 +163,7 @@ body {
     opacity: 0;
     transform: translateX(-50%) translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
@@ -242,6 +243,7 @@ body {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -327,8 +329,13 @@ body {
   .navbar-menu {
     display: flex;
   }
+
   .navbar-mobile-toggle {
     display: none;
+  }
+
+  .navbar-mobile-menu {
+    display: none !important;
   }
 }
 
@@ -350,20 +357,31 @@ body {
     font-size: 14px;
   }
 }
+
 section {
-  scroll-margin-top: 110px; /* same as navbar height */
-  min-height: 100vh; /* ensures full-page section height */
+  scroll-margin-top: 110px;
+  /* same as navbar height */
+  min-height: 100vh;
+  /* ensures full-page section height */
   box-sizing: border-box;
 }
+
 .navbar-dropdown-btn {
-  padding: 0; /* remove default button padding */
-  margin-top: 3.7px; /* remove default margin */
-  height: 2px; /* allow natural height */
-  line-height: 1.2; /* same as links */
-  font-size: 16px; /* match other navbar links */
+  padding: 0;
+  /* remove default button padding */
+  margin-top: 3.7px;
+  /* remove default margin */
+  height: 2px;
+  /* allow natural height */
+  line-height: 1.2;
+  /* same as links */
+  font-size: 16px;
+  /* match other navbar links */
   display: flex;
-  align-items: center; /* vertically center text */
-  gap: 0.25rem; /* spacing with icon */
+  align-items: center;
+  /* vertically center text */
+  gap: 0.25rem;
+  /* spacing with icon */
   background: none;
   border: none;
   cursor: pointer;

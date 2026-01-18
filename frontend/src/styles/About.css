@@ -2,169 +2,197 @@
    About.css (Content.css)
    ============================================ */
 
-.about {
-  padding: 5rem 1.5rem;
-  text-align: justify;
-  transition: all 0.3s ease;
-}
+ .about {
+   padding: 5rem 1.5rem;
+   text-align: justify;
+   transition: all 0.3s ease;
+ }
 
-.about.dark-theme {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
+ .about.dark-theme {
+   background-color: #1a1a1a;
+   color: #ffffff;
+ }
 
-.about.light-theme {
-  background-color: #ffffff;
-  color: #212529;
-}
+ .about.light-theme {
+   background-color: #ffffff;
+   color: #212529;
+ }
 
-/* removed global theme override for about */
+ /* removed global theme override for about */
 
-.section-toggle-btn {
-  background: transparent;
-  color: #fdb913;
-  border: 1px solid #fdb913;
-  border-radius: 6px;
-  padding: 0.4rem 0.8rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-}
+ .section-toggle-btn {
+   background: transparent;
+   color: #fdb913;
+   border: 1px solid #fdb913;
+   border-radius: 6px;
+   padding: 0.4rem 0.8rem;
+   margin-bottom: 1rem;
+   cursor: pointer;
+ }
 
-.about-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  gap: 3rem;
-  align-items: center;
-  overflow: hidden; /* Prevent animation overflow */
-}
+ .about-container {
+   max-width: 1280px;
+   margin: 0 auto;
+   display: grid;
+   gap: 3rem;
+   align-items: center;
+   overflow: hidden;
+   /* Prevent animation overflow */
+ }
 
-/* ===== INITIAL HIDDEN STATE ===== */
-.about-text,
-.about-image {
-  transition: all 1s ease;
-  opacity: 0;
-}
+ /* ===== INITIAL HIDDEN STATE ===== */
+ .about-text,
+ .about-image {
+   transition: all 1s ease;
+   opacity: 0;
+ }
 
-.about-text {
-  transform: translateX(-100px);
-}
+ .about-text {
+   transform: translateX(-100px);
+ }
 
-.about-image {
-  transform: translateX(100px);
-}
+ .about-image {
+   transform: translateX(100px);
+ }
 
-/* ===== ACTIVE (VISIBLE) STATE ===== */
-.about-container.active .about-text {
-  transform: translateX(0);
-  opacity: 1;
-}
+ /* ===== ACTIVE (VISIBLE) STATE ===== */
+ .about-container.active .about-text {
+   transform: translateX(0);
+   opacity: 1;
+ }
 
-.about-container.active .about-image {
-  transform: translateX(0);
-  opacity: 1;
-}
+ .about-container.active .about-image {
+   transform: translateX(0);
+   opacity: 1;
+ }
 
-/* ===== TEXT STYLING ===== */
-.about-text h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
+ /* ===== TEXT STYLING ===== */
+ .about-text h2 {
+   font-size: 2.5rem;
+   font-weight: bold;
+   margin-bottom: 1.5rem;
+ }
 
-.about.dark-theme .about-text h2 {
-  color: #fdb913;
-}
+ .about.dark-theme .about-text h2 {
+   color: #fdb913;
+ }
 
-.about.light-theme .about-text h2 {
-  color: #d4af37;
-}
+ .about.light-theme .about-text h2 {
+   color: #d4af37;
+ }
 
-.about-text p {
-  font-size: 1.125rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-}
+ .about-text p {
+   font-size: 1.125rem;
+   margin-bottom: 1.5rem;
+   line-height: 1.8;
+ }
 
-.about.dark-theme .about-text p {
-  color: #d1d1d1;
-}
+ .about.dark-theme .about-text p {
+   color: #d1d1d1;
+ }
 
-.about.light-theme .about-text p {
-  color: #6c757d;
-}
+ .about.light-theme .about-text p {
+   color: #6c757d;
+ }
 
-/* ===== LINK STYLING ===== */
-.about-link {
-  color: #fdb913;
-  font-weight: 600;
-  font-size: 1.125rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-}
+ /* ===== LINK STYLING ===== */
+ .about-link {
+   color: #fdb913;
+   font-weight: 600;
+   font-size: 1.125rem;
+   text-decoration: none;
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   transition: all 0.3s ease;
+ }
 
-.about-link:hover {
-  text-decoration: underline;
-  gap: 0.75rem;
-}
+ .about-link:hover {
+   text-decoration: underline;
+   gap: 0.75rem;
+ }
 
-/* ===== IMAGE STYLING ===== */
-.about-image img {
-  border-radius: 0.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-  width: 80%;
-  height: 500px;
-  /* object-fit: cover; */
-}
+ /* ===== IMAGE STYLING ===== */
+ .about-image img {
+   border-radius: 0.5rem;
+   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+   width: 100%;
+   max-width: 500px;
+   /* Limit max width */
+   height: auto;
+   /* Maintain aspect ratio */
+   display: block;
+   margin: 0 auto;
+ }
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (min-width: 768px) {
-  .about-container {
-    grid-template-columns: 1fr 1fr;
-  }
+ /* ===== RESPONSIVE DESIGN ===== */
+ @media (min-width: 768px) {
+   .about-container {
+     grid-template-columns: 1fr 1fr;
+   }
 
-  .about-text h2 {
-    font-size: 3rem;
-  }
-} 
+   .about-text h2 {
+     font-size: 3rem;
+   }
 
-.about-btn {
-  background-color: transparent;       /* Matches section background */
-  border: 2px solid;                 /* Dynamic border color */
-  border-radius: 6px;                /* Rounded corners */
-  padding: 0.6rem 1.2rem;            /* Button padding */
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-align: center;
-}
+   .about-image img {
+     width: 80%;
+     /* Restore width for desktop if needed, or keep fluid */
+     height: 500px;
+     object-fit: cover;
+   }
+ }
 
-.about.dark-theme .about-btn {
-  color: #fdb913;                     /* Accent color */
-  border-color: #fdb913;             /* Accent border */
-}
+ .about-btn {
+   background-color: transparent;
+   /* Matches section background */
+   border: 2px solid;
+   /* Dynamic border color */
+   border-radius: 6px;
+   /* Rounded corners */
+   padding: 0.6rem 1.2rem;
+   /* Button padding */
+   font-size: 1rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   display: inline-block;
+   text-align: center;
+ }
 
-.about.light-theme .about-btn {
-  color: #d4af37;                     /* Accent color */
-  border-color: #d4af37;             /* Accent border */
-}
+ .about.dark-theme .about-btn {
+   color: #fdb913;
+   /* Accent color */
+   border-color: #fdb913;
+   /* Accent border */
+ }
 
-/* Hover effect */
-.about.dark-theme .about-btn:hover {
-  background-color: #fdb913;          /* Fill button on hover */
-  color: #1a1a1a;                     /* Change text color */
-  transform: translateY(-2px);        /* Slight lift */
-  box-shadow: 0 4px 12px rgba(253, 185, 19, 0.4); /* Glow effect */
-}
+ .about.light-theme .about-btn {
+   color: #d4af37;
+   /* Accent color */
+   border-color: #d4af37;
+   /* Accent border */
+ }
 
-.about.light-theme .about-btn:hover {
-  background-color: #d4af37;          /* Fill button on hover */
-  color: #ffffff;                     /* Change text color */
-  transform: translateY(-2px);        /* Slight lift */
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4); /* Glow effect */
-}
+ /* Hover effect */
+ .about.dark-theme .about-btn:hover {
+   background-color: #fdb913;
+   /* Fill button on hover */
+   color: #1a1a1a;
+   /* Change text color */
+   transform: translateY(-2px);
+   /* Slight lift */
+   box-shadow: 0 4px 12px rgba(253, 185, 19, 0.4);
+   /* Glow effect */
+ }
+
+ .about.light-theme .about-btn:hover {
+   background-color: #d4af37;
+   /* Fill button on hover */
+   color: #ffffff;
+   /* Change text color */
+   transform: translateY(-2px);
+   /* Slight lift */
+   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+   /* Glow effect */
+ }

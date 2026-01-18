@@ -193,11 +193,114 @@
   color: #000;
 }
 
-/* Optional subtle animation */
-.wordcount-item {
-  transition: transform 0.3s ease;
-}
+/* Responsive Mobile Design */
+@media (max-width: 900px) {
+  .legacy-container {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+    flex-direction: column;
+    padding: 100px 1.5rem 2rem;
+    justify-content: flex-start;
+  }
 
-.wordcount-item:hover {
-  transform: scale(1.05);
+  .timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  /* Vertical Line */
+  .timeline-line {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 7px;
+    /* Aligns with center of dot (14px/2) */
+    right: auto;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+    padding-left: 2rem;
+    /* Space for line and dot */
+    width: 100%;
+  }
+
+  /* Position dot on the line */
+  .dot {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    margin-bottom: 0;
+  }
+
+  .topic {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  /* Mobile Description (Always Visible) - Override JS interactions */
+  .hover-box,
+  .hover-box.visible {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    opacity: 1;
+    width: auto;
+    /* Allow it to fit within container */
+    max-width: 100%;
+    text-align: left;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(253, 185, 19, 0.3);
+    pointer-events: auto;
+    margin-top: 0.5rem;
+    visibility: visible;
+  }
+
+  /* Disable cursor pointer on mobile */
+  .dot,
+  .topic {
+    cursor: default;
+  }
+
+  /* Disable hover zoom on mobile */
+  .dot:hover {
+    transform: none;
+  }
+
+  .legacy-container.light-theme .hover-box {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+
+  .unmatched {
+    margin: 2rem 0 2rem 2rem;
+    /* Align with timeline items */
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .unmatched h2 {
+    font-size: 2.5rem;
+  }
+
+  /* Words Count Section Stacking */
+  .wordcount-section {
+    position: relative;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem 0;
+    align-items: center;
+    /* Center align items vertically */
+    justify-content: center;
+  }
 }

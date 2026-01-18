@@ -70,9 +70,23 @@
   border-radius: 0.5rem;
   border: 1px solid;
   box-sizing: border-box;
-  width: 280px;
-  height: 390px;
-  flex: 0 0 400px;
+  /*  width: 280px; removed conflicting fixed width */
+  height: auto;
+  min-height: 390px;
+  flex: 0 0 85vw;
+  /* Responsive width for mobile */
+}
+
+@media (min-width: 480px) {
+  .testimonial-card {
+    flex: 0 0 350px;
+  }
+}
+
+@media (min-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 400px;
+  }
 }
 
 .testimonials.dark-theme .testimonial-card {

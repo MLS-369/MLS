@@ -47,7 +47,7 @@
 
 .publications-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -124,9 +124,13 @@
   background-color: #ffd700;
   transform: scale(1.05);
 }
+
 .back-button-container {
   display: flex;
-  justify-content: center; /* center horizontally */
-  margin-top: 2rem;       /* space from form */
-  margin-bottom: 2rem;    /* space at the bottom of page */
+  justify-content: center;
+  /* center horizontally */
+  margin-top: 2rem;
+  /* space from form */
+  margin-bottom: 2rem;
+  /* space at the bottom of page */
 }
