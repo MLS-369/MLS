@@ -11,10 +11,11 @@ import About from "./components/About";
 import Careers from "./components/Career";
 import { ThemeProvider } from "./components/ThemeContext";
 import Blogs from "./components/Blogs";
-import Newsletters from "./components/Newsletters";
 import Publications from "./components/Publications";
 import Events from "./components/Events";
 import Legacy from "./components/Legacy";
+import Team from "./components/Team";
+import BlogPost from "./components/BlogPost";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -45,8 +46,78 @@ const ScrollToTop = () => {
   
   return null;
 };
-
 function App() {
+  React.useEffect(() => {
+    // 1. Disable Right Click
+    const handleContextMenu = (e) => e.preventDefault();
+    
+    // 2. Disable Screenshot Key Combinations & DevTools
+    const handleKeyDown = (e) => {
+      // Print Screen
+      if (e.key === 'PrintScreen') {
+        navigator.clipboard.writeText("");
+        alert("Screenshots are disabled for privacy.");
+      }
+      
+      // Ctrl+P (Print)
+      if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) {
+        e.preventDefault();
+        alert("Printing is disabled.");
+      }
+
+      // Ctrl+Shift+I (DevTools), Ctrl+Shift+J, Ctrl+Shift+C, F12
+      if (
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+        (e.key === 'F12') ||
+        (e.ctrlKey && e.key === 'u' || e.key === 'U') || // View Source
+        (e.ctrlKey && e.key === 's' || e.key === 'S')    // Save Page
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    // 3. Hide content when window loses focus or tab is changed
+    const handlePrivacy = () => {
+      if (document.visibilityState === 'hidden' || !document.hasFocus()) {
+        document.body.style.filter = "blur(50px)";
+        document.body.style.opacity = "0";
+      } else {
+        document.body.style.filter = "none";
+        document.body.style.opacity = "1";
+      }
+    };
+
+    // 4. Disable Copy & Dragging
+    const handleCopy = (e) => {
+      e.preventDefault();
+      alert("Copying content is disabled for privacy.");
+    };
+    const handleDrag = (e) => {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    };
+
+    window.addEventListener("contextmenu", handleContextMenu);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("blur", handlePrivacy);
+    window.addEventListener("focus", handlePrivacy);
+    window.addEventListener("copy", handleCopy);
+    window.addEventListener("dragstart", handleDrag);
+    document.addEventListener("visibilitychange", handlePrivacy);
+
+    // Initial check
+    handlePrivacy();
+
+    return () => {
+      window.removeEventListener("contextmenu", handleContextMenu);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("blur", handlePrivacy);
+      window.removeEventListener("focus", handlePrivacy);
+      window.removeEventListener("copy", handleCopy);
+      window.removeEventListener("dragstart", handleDrag);
+      document.removeEventListener("visibilitychange", handlePrivacy);
+    };
+  }, []);
+
   return (
     <ThemeProvider>
       <Router>
@@ -70,9 +141,10 @@ function App() {
           <Route path="/legacy" element={<Legacy />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/newsletters" element={<Newsletters />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
         </Routes>
       </Router>
     </ThemeProvider>

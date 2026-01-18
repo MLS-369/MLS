@@ -25,10 +25,10 @@ const Legacy = () => {
   const topics = [
     {
       name: "MEN",
-      desc: "“MEN” is more than just the first part of our name; it is the foundation of our journey. It reflects the principles that guide every step we take: integrity, trust, and unwavering commitment. It is in the way we approach each case with diligence, the way we honor our promises, and the way we nurture relationships that last a lifetime. MEN represents the human element at the heart of our firm — a dedication to doing what is right, a pursuit of excellence in every endeavor, and a promise to lead with both wisdom and compassion. It is the starting point of a legacy built to endure."
+      desc: "“MEN” Represents the mind and intellect, symbolising sharp legal reasoning, clarity of thought, and sound judgment in every matter we handle."
     },
-    { name: "LEGATUM", desc: "Years of mastery create precise outcomes." },
-    { name: "SANCTITUS", desc: "Turning vision into measurable results." }
+    { name: "LEGATUM", desc: "Means legacy or bequest, reflecting the lasting value, trust, and long-term impact we strive to create for our clients through our work." },
+    { name: "SANCTITUS", desc: "Represents sanctity and integrity, symbolising ethical practice, professional honour, and unwavering commitment to justice and the rule of law." }
   ];
 
   return (
@@ -54,7 +54,7 @@ const Legacy = () => {
         ))}
 
         <div className="unmatched">
-          <h2>Unmatched</h2>
+          <h2>Success<br/>Unmatched</h2>
         </div>
       </div>
 
@@ -66,13 +66,18 @@ const Legacy = () => {
         </div>
 
         <div className="wordcount-item">
-          <WordCount count={800} />
+          <WordCount count={1000} />
           <p>Trusted Clients</p>
         </div>
 
         <div className="wordcount-item">
-          <WordCount count={300} />
-          <p>Global Partners</p>
+          <WordCount count={200} />
+          <p>Trademarks & Patents</p>
+        </div>
+        <div className="wordcount-item">
+          {/* <WordCount count={98} /> */}
+          <span className="wordcount-span">98%</span>
+          <p>Success Rate</p>
         </div>
       </div>
     </div>

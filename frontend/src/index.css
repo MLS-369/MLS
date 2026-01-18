@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 }
 
 code {
@@ -22,6 +23,32 @@ body.light-theme {
   background-color: #f0f0f0;
   color: #000000;
   transition: background-color 0.3s ease;
+}
+
+/* Anti-Screenshot & Privacy Measures */
+
+/* Disable Text Selection */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection in input/textarea */
+input,
+textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Hide content when printing */
+@media print {
+  body {
+    display: none !important;
+  }
 }
 
 /* removed section toggle/theme button shared styles */

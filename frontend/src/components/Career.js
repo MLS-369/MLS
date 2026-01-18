@@ -123,13 +123,13 @@ const Careers = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Email</label>
+                <label>Mail</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="example@email.com"
+                  placeholder="example@gmail.com"
                   required
                 />
               </div>
@@ -196,7 +196,7 @@ const Careers = () => {
                   name="yearOfStudy"
                   value={formData.yearOfStudy}
                   onChange={handleChange}
-                  placeholder="e.g. Final Year"
+                  placeholder="e.g. 1 or 2"
                   required
                 />
               </div>
@@ -312,7 +312,7 @@ const Careers = () => {
               <span className="file-name">{fileName}</span>
             </div>
             <div className="form-group cover-letter">
-              <label>Cover Letter (Optional)</label>
+              <label>Cover Letter (Required)</label>
               <textarea
                 name="coverLetter"
                 value={formData.coverLetter}
@@ -338,7 +338,7 @@ const Careers = () => {
       {/* Back button */}
       <div className="back-button-container">
         <button type="button" className="back-btn" onClick={() => navigate("/")}>
-          &larr; Back
+           Back
         </button>
       </div>
     </div>

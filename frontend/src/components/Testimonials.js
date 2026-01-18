@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Star } from 'lucide-react';
 import '../styles/Testimonials.css';
 import { useTheme } from './ThemeContext';
 
 const Testimonials = () => {
-  const [isOpen, setIsOpen] = useState(true);
   const { isDarkTheme } = useTheme();
   const testimonials = [
     {

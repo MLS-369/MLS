@@ -65,7 +65,7 @@ const Navbar = () => {
           </a>
 
           <div className="navbar-menu">
-            <Link to="/legacy">Legacy</Link>
+            <button className="navbar-section-link" onClick={() => navigate("/legacy")}>Legacy</button>
             <button
               className="navbar-section-link"
               onClick={() => handleSectionNavigation("practice")}
@@ -78,7 +78,7 @@ const Navbar = () => {
             >
               Our People
             </button>
-            <Link to="/careers">Careers</Link>
+            <button className="navbar-section-link" onClick={() => navigate("/careers")}>Careers</button>
 
             <div
               className="navbar-dropdown"
@@ -96,7 +96,6 @@ const Navbar = () => {
                   onMouseLeave={handleMouseLeave}
                 >
                   <Link to="/blogs">Blogs</Link>
-                  <Link to="/newsletters">Newsletters</Link>
                   <Link to="/publications">Publications</Link>
                   <Link to="/events">Events</Link>
                 </div>

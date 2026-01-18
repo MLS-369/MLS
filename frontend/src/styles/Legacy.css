@@ -1,6 +1,6 @@
 .legacy-container {
   position: relative;
-  min-height: 100vh;
+  min-height: 88vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +40,7 @@
 
 .legacy-container.dark-theme .timeline-line {
   background-color: #c49b66;
+
 }
 
 .legacy-container.light-theme .timeline-line {
@@ -127,7 +128,7 @@
 
 .unmatched {
   margin-left: 100px;
-  margin-top: -15px;
+  margin-top: -27px;
   padding-top: 0;
   padding-bottom: 20px;
   display: flex;
@@ -165,7 +166,7 @@
 }
 
 .legacy-container.dark-theme .wordcount-section {
-  background-color: #d4af37;
+  background-color: #FFD700;
   color: #000;
 }
 
@@ -193,6 +194,13 @@
   color: #000;
 }
 
+.wordcount-span {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 0;
+  color: #000;
+}
+
 /* Responsive Mobile Design */
 @media (max-width: 900px) {
   .legacy-container {
@@ -200,7 +208,7 @@
     min-height: 100vh;
     overflow-y: visible;
     flex-direction: column;
-    padding: 100px 1.5rem 2rem;
+    padding: 2rem 1.5rem 2rem;
     justify-content: flex-start;
   }
 

@@ -44,7 +44,7 @@ const About = () => {
         <div className="about-text">
           <h2>Our Firm</h2>
           <p>
-            MLS&Co is a premier full-service law Firm in India, built on a
+            MLS & Co is a premier full-service law Firm in India, built on a
             foundation of excellence and integrity. We partner with clients to
             navigate complex legal and business landscapes, providing innovative
             solutions that address immediate challenges while creating long-term
@@ -55,7 +55,7 @@ const About = () => {
           <p>
             Collaboration is central to our approach. We work closely with
             clients to deliver precise, practical, and strategically sound
-            solutions. Driven by the Spirit of Justice, Guided by the Sanctity of Law, MLS&Co is
+            solutions. Driven by the Spirit of Justice, Guided by the Sanctity of Law, MLS & Co is
             your trusted legal partner, committed to shaping the legal landscape
             and fostering sustainable development for our clients and
             communities through advisory, litigation, and pro bono initiatives.

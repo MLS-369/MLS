@@ -11,9 +11,10 @@ body {
 }
 
 .navbar {
-  height: 90px;
-  position: fixed;
-  top: -5px;
+  min-height: 90px;
+  height: auto;
+  position: sticky;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 1000;

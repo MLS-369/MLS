@@ -6,8 +6,8 @@
   justify-content: center;
   /* Center content vertically */
   padding: 1.5rem;
-  padding-top: 8rem;
-  /* Reasonable mobile spacing relative to fixed navbar */
+  padding-top: 2rem;
+  /* Reduced since navbar is now sticky */
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;

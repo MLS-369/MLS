@@ -13,21 +13,20 @@ const Events = () => {
         <h1>Upcoming Events</h1>
         <p>Join us for seminars, workshops, and conferences organized by MLS&Co.</p>
       </div>
-      <div className="events-list">
-        <div className="event-card">
-          <h2>Law Seminar 2025</h2>
-          <p>A seminar discussing recent legal reforms and landmark cases.</p>
-          <button className="read-more">Register</button>
-        </div>
-        <div className="event-card">
-          <h2>Workshop on Corporate Law</h2>
-          <p>Interactive workshop for law students and professionals.</p>
-          <button className="read-more">Register</button>
+      <div className="events-list coming-soon">
+        <div className="coming-soon-content">
+          <h2>Coming Soon</h2>
+          <p>We are currently planning our upcoming seminars and workshops. Stay tuned for updates on our upcoming events.</p>
+          <div className="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
       <div className="back-button-container">
         <button className="back-btn" onClick={() => navigate('/')}>
-          &larr; Back
+           Back
         </button>
       </div>
     </div>

@@ -9,3 +9,5 @@ backend/internships/
 
 # Secrets
 .env
+
+build/

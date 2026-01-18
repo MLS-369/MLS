@@ -136,9 +136,9 @@
    }
 
    .about-image img {
-     width: 80%;
+     width: 90%;
      /* Restore width for desktop if needed, or keep fluid */
-     height: 500px;
+     height: 600px;
      object-fit: cover;
    }
  }

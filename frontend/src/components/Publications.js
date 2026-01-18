@@ -13,21 +13,20 @@ const Publications = () => {
         <h1>Our Publications</h1>
         <p>Browse research papers and publications authored by our experts.</p>
       </div>
-      <div className="publications-list">
-        <div className="publication-card">
-          <h2>Legal Research Paper 2025</h2>
-          <p>An in-depth study on constitutional law trends.</p>
-          <button className="read-more">Read More</button>
-        </div>
-        <div className="publication-card">
-          <h2>Corporate Law Review</h2>
-          <p>Highlights of corporate legal developments in 2025.</p>
-          <button className="read-more">Read More</button>
+      <div className="publications-list coming-soon">
+        <div className="coming-soon-content">
+          <h2>Coming Soon</h2>
+          <p>We are currently curating our latest legal research and publications. Check back soon for insightful content.</p>
+          <div className="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
       <div className="back-button-container">
         <button className="back-btn" onClick={() => navigate('/')}>
-          &larr; Back
+           Back
         </button>
       </div>
     </div>

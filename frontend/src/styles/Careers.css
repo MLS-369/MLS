@@ -12,7 +12,7 @@ body {
 /* Container */
 .internship-container {
   min-height: 100vh;
-  padding-top: 100px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -87,6 +87,24 @@ body {
   margin-bottom: 3rem;
 }
 
+.form-field {
+  margin-bottom: 1.5rem;
+}
+.form-field select{
+  background-color: #0a0a0a;
+  color:grey;
+  outline:none;
+  padding-right: 10px;
+}
+
+.file-input-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.cover-letter label{
+  margin-left: 5px;
+}
+
 .section-title {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
@@ -131,7 +149,7 @@ body {
   color: #ffffff;
 }
 
-.internship-container.light-theme .cover-letter{
+.internship-container.light-theme .cover-letter {
   color: #9a9b9c;
   background-color: white;
 }
@@ -160,8 +178,7 @@ body {
 }
 
 .form-group input::placeholder,
-.form-group textarea::placeholder {
-}
+.form-group textarea::placeholder {}
 
 .internship-container.dark-theme .form-group input::placeholder,
 .internship-container.dark-theme .form-group textarea::placeholder {

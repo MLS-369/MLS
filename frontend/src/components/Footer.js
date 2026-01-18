@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import { Facebook, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import "../styles/Footer.css";
 import { useTheme } from "./ThemeContext";
 
@@ -12,14 +12,19 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-section">
-            <h3>MLS&Co</h3>
-            <p>
-              "Delivering comprehensive legal solutions with integrity, expertise, and a commitment to your success."
+            <h3>MLS & Co</h3>
+            <span className="law-firm">Law Firm</span>
+            <p className="tagline">
+              Delivering comprehensive legal solutions with integrity, expertise, and a commitment to your success.
             </p>
             <div className="footer-social">
               <Facebook className="footer-social-icon" />
-              <Twitter className="footer-social-icon" />
-              <Linkedin className="footer-social-icon" />
+              <a href="https://www.instagram.com/mlsandcolawfirm" target="_blank" rel="noopener noreferrer">
+                <Instagram className="footer-social-icon" />
+              </a>
+              <a href="https://www.linkedin.com/company/mls-law-firm/" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="footer-social-icon" />
+              </a>
             </div>
           </div>
           <div className="footer-section abbrcard">
