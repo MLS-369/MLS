@@ -64,7 +64,7 @@ const Careers = () => {
     if (draftSample) data.append("draftSample", draftSample);
 
     try {
-      const res = await axios.post("http://localhost:5000/career", data, {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/career`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -105,7 +105,6 @@ const Careers = () => {
         <p className="form-subtitle">
           We are looking forward to have talented and motivated students and graduates join our team.
         </p>
-
         <form onSubmit={handleSubmit} className="application-form">
           {/* Personal Info */}
           <div className="form-section">
@@ -338,7 +337,7 @@ const Careers = () => {
       {/* Back button */}
       <div className="back-button-container">
         <button type="button" className="back-btn" onClick={() => navigate("/")}>
-           Back
+          Back
         </button>
       </div>
     </div>

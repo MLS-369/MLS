@@ -32,7 +32,7 @@ const ContactForm = () => {
     };
 
     try {
-      const res = await axios.post('http://localhost:5000/form', postData);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/form`, postData);
       console.log(res.data);
       alert(res.data.message);
 
