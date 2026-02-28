@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/BlogPost.css";
 import { useTheme } from "./ThemeContext";
-import { User, Briefcase, GraduationCap, MapPin } from "lucide-react";
+import { GraduationCap, MapPin } from "lucide-react";
 
 const BlogPost = () => {
     const navigate = useNavigate();
     const { isDarkTheme } = useTheme();
-    const { id } = useParams();
+    // const { id } = useParams();
 
     useEffect(() => {
         window.scrollTo(0, 0);

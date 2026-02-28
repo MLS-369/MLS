@@ -69,8 +69,8 @@ function App() {
       if (
         (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
         (e.key === 'F12') ||
-        (e.ctrlKey && e.key === 'u' || e.key === 'U') || // View Source
-        (e.ctrlKey && e.key === 's' || e.key === 'S')    // Save Page
+        ((e.ctrlKey && e.key === 'u') || (e.key === 'U') )|| // View Source
+        ((e.ctrlKey && e.key === 's') || (e.key === 'S')  )  // Save Page
       ) {
         e.preventDefault();
       }
