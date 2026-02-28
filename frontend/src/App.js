@@ -53,28 +53,31 @@ function App() {
     
     // 2. Disable Screenshot Key Combinations & DevTools
     const handleKeyDown = (e) => {
-      // Print Screen
-      if (e.key === 'PrintScreen') {
-        navigator.clipboard.writeText("");
-        alert("Screenshots are disabled for privacy.");
-      }
-      
-      // Ctrl+P (Print)
-      if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) {
-        e.preventDefault();
-        alert("Printing is disabled.");
-      }
+  if (e.key === "PrintScreen") {
+    navigator.clipboard.writeText("");
+    alert("Screenshots are disabled for privacy.");
+  }
 
-      // Ctrl+Shift+I (DevTools), Ctrl+Shift+J, Ctrl+Shift+C, F12
-      if (
-        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
-        (e.key === 'F12') ||
-        ((e.ctrlKey && e.key === 'u') || (e.key === 'U') )|| // View Source
-        ((e.ctrlKey && e.key === 's') || (e.key === 'S')  )  // Save Page
-      ) {
-        e.preventDefault();
-      }
-    };
+  if (e.ctrlKey && (e.key === "p" || e.key === "P")) {
+    e.preventDefault();
+    alert("Printing is disabled.");
+  }
+
+  const isDevToolsCombo =
+    e.ctrlKey &&
+    e.shiftKey &&
+    (e.key === "I" || e.key === "J" || e.key === "C");
+
+  const isF12 = e.key === "F12";
+
+  const isViewSource = e.ctrlKey && (e.key === "u" || e.key === "U");
+
+  const isSavePage = e.ctrlKey && (e.key === "s" || e.key === "S");
+
+  if (isDevToolsCombo || isF12 || isViewSource || isSavePage) {
+    e.preventDefault();
+  }
+};
 
     // 3. Hide content when window loses focus or tab is changed
     const handlePrivacy = () => {
