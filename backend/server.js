@@ -25,7 +25,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://your-frontend-name.vercel.app"
+    "https://mls-frontend-nu.vercel.app/"
   ],
   credentials: true
 }));
