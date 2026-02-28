@@ -22,7 +22,13 @@ const Form = require("./models/Form");
 const Application = require("./models/Application");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://your-frontend-name.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // ----------------------
